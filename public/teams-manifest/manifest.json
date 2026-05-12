@@ -1,0 +1,41 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.17",
+  "version": "1.0.0",
+  "id": "f09cc40e-cbcf-49ec-b5fa-a0419beaaffa",
+  "developer": {
+    "name": "Your Name",
+    "websiteUrl": "https://Seb0815.github.io/teams-meeting-cost-app",
+    "privacyUrl": "https://Seb0815.github.io/teams-meeting-cost-app",
+    "termsOfUseUrl": "https://Seb0815.github.io/teams-meeting-cost-app"
+  },
+  "name": {
+    "short": "Meeting Cost",
+    "full": "Meeting Cost Calculator"
+  },
+  "description": {
+    "short": "Zeigt die realen Kosten eines laufenden Meetings.",
+    "full": "Berechnet live die Kosten eines Meetings: Anzahl Teilnehmer × Stundensatz × verstrichene Zeit."
+  },
+  "icons": {
+    "color": "icon-color.png",
+    "outline": "icon-outline.png"
+  },
+  "accentColor": "#6264A7",
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://Seb0815.github.io/teams-meeting-cost-app",
+      "canUpdateConfiguration": false,
+      "scopes": ["groupchat"],
+      "context": [
+        "meetingSidePanel",
+        "meetingChatTab",
+        "meetingDetailsTab"
+      ]
+    }
+  ],
+  "permissions": ["identity", "messageTeamMembers"],
+  "validDomains": [
+    "Seb0815.github.io"
+  ]
+}
