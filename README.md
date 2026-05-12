@@ -1,23 +1,21 @@
 # Meeting Cost App – Microsoft Teams
 
-Eine Microsoft Teams Meeting-App, die live die realen Kosten eines laufenden Meetings anzeigt.
+A Microsoft Teams meeting app that displays the real-time cost of a running meeting.
 
-**Formel:** `Anzahl Teilnehmer × Stundensatz × verstrichene Zeit = laufende Kosten`
-
-![Teams Side Panel](https://seb0815.github.io/teams-meeting-cost-app/)
+**Formula:** `Participants × Hourly rate × Elapsed time = Running cost`
 
 ## Features
 
-- Live-Kostenzähler (aktualisiert jede Sekunde)
-- Konfigurierbarer Stundensatz (wird im Browser gespeichert)
-- Manuelle Eingabe der Teilnehmerzahl
-- Anzeige von Kosten pro Minute und Gesamtkosten
-- Automatisches Teams-Theming (Hell / Dunkel / Hoher Kontrast)
-- Läuft als Teams Meeting Side Panel
+- Live cost counter (updates every second)
+- Configurable hourly rate (persisted in local storage)
+- Manual participant count input
+- Cost per minute and total cost display
+- Automatic Teams theming (Light / Dark / High Contrast)
+- Runs as a Teams Meeting Side Panel
 
-## Lokale Entwicklung
+## Local Development
 
-### Voraussetzungen
+### Prerequisites
 
 - Node.js 20+
 - npm 9+
@@ -30,79 +28,77 @@ cd teams-meeting-cost-app
 npm install
 ```
 
-### Dev-Server starten
+### Start the dev server
 
 ```bash
 npm run dev
 ```
 
-Die App läuft unter `http://localhost:5173` und kann dort im Browser getestet werden (ohne Teams-Kontext, aber mit vollem UI).
+The app runs at `http://localhost:5173` and can be tested in the browser without a Teams context.
 
-### Build erstellen
+### Create a production build
 
 ```bash
 npm run build
 ```
 
-Das Build-Ergebnis liegt in `dist/`.
+Output is written to `dist/`.
 
-## Als Teams-App installieren (Sideloading)
+## Install as a Teams App (Sideloading)
 
-### Schritt 1: App-Manifest vorbereiten
+### Step 1: Prepare the app package
 
-Nach dem Build enthält `dist/teams-manifest.zip` das fertige Paket mit:
+After building, `dist/teams-manifest.zip` contains the ready-to-upload package:
 - `manifest.json`
 - `icon-color.png` (192×192)
 - `icon-outline.png` (32×32)
 
-### Schritt 2: App in Teams hochladen
+### Step 2: Upload to Teams
 
-1. Teams öffnen → **Apps** → **App verwalten**
-2. **Benutzerdefinierte App hochladen** (oder über [Teams Developer Portal](https://dev.teams.microsoft.com))
-3. `dist/teams-manifest.zip` auswählen
-4. App bestätigen
+1. Open Teams → **Apps** → **Manage your apps**
+2. Click **Upload a custom app** (or use the [Teams Developer Portal](https://dev.teams.microsoft.com))
+3. Select `dist/teams-manifest.zip`
+4. Confirm the installation
 
-> **Voraussetzung:** Dein Teams-Administrator muss das Sideloading/Upload von benutzerdefinierten Apps erlauben (Teams Admin Center → Teams-Apps → App-Richtlinien).
+> **Prerequisite:** Your Teams administrator must allow uploading custom apps (Teams Admin Center → Teams apps → App policies).
 
-### Schritt 3: App in einem Meeting nutzen
+### Step 3: Use the app in a meeting
 
-1. Ein Teams-Meeting starten oder beitreten
-2. Oben in der Meeting-Leiste auf **Apps** klicken
-3. **Meeting Cost** suchen und hinzufügen
-4. Die App öffnet sich im **Side Panel**
-5. Anzahl Teilnehmer und Stundensatz eingeben → **Start** drücken
+1. Start or join a Teams meeting
+2. Click **Apps** in the meeting toolbar
+3. Search for **Meeting Cost** and add it
+4. The app opens in the **Side Panel**
+5. Enter the number of participants and the hourly rate → press **Start**
 
 ## Deployment (GitHub Pages)
 
-Das Projekt deployed automatisch über GitHub Actions auf GitHub Pages.
+The project deploys automatically via GitHub Actions to GitHub Pages on every push to `main`.
 
 ```
 https://seb0815.github.io/teams-meeting-cost-app/
 ```
 
-Jeder Push auf `main` triggert einen neuen Deploy.
-
 ## Tech Stack
 
-| Technologie | Zweck |
+| Technology | Purpose |
 |---|---|
-| React + TypeScript | UI-Framework |
-| Vite | Build-Tool |
-| @microsoft/teams-js v2 | Teams SDK (Kontext, Theming) |
-| @fluentui/react-components v9 | Teams-natives UI-Design |
+| React + TypeScript | UI framework |
+| Vite | Build tool |
+| @microsoft/teams-js v2 | Teams SDK (context, theming) |
+| @fluentui/react-components v9 | Native Teams UI design |
 | GitHub Actions | CI/CD |
 | GitHub Pages | Hosting |
 
 ## Roadmap (Phase 2)
 
-- [ ] Automatische Teilnehmerzählung via Graph API + RSC
-- [ ] Verschiedene Stundensätze pro Rolle (Senior/Junior)
-- [ ] Meeting-Kostenhistorie
-- [ ] Export als PDF/CSV
+- [ ] Automatic participant count via Graph API + RSC
+- [ ] Different hourly rates per role (Senior / Junior)
+- [ ] Meeting cost history
+- [ ] Export as PDF / CSV
 
-## Lizenz
+## License
 
-MIT – siehe [LICENSE](LICENSE)
+MIT – see [LICENSE](LICENSE)
 
 ## React Compiler
 
