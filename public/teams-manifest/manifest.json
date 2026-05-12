@@ -29,6 +29,7 @@
       "scopes": ["groupchat"],
       "context": [
         "meetingSidePanel",
+        "meetingStage",
         "meetingChatTab",
         "meetingDetailsTab"
       ]
