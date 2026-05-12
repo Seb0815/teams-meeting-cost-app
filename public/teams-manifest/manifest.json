@@ -38,5 +38,15 @@
   "permissions": ["identity", "messageTeamMembers"],
   "validDomains": [
     "Seb0815.github.io"
-  ]
+  ],
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "name": "MeetingStage.Write.Chat",
+          "type": "Delegated"
+        }
+      ]
+    }
+  }
 }
